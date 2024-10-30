@@ -1,72 +1,81 @@
 public static int glyph2int(int radix) {
 
-         int input;
-         int digit;
+               boolean t0;
+               boolean t1;
+               boolean t2;
+               boolean x;
+               boolean y;
+               int input;
+               int digit;
 
-         boolean x0;
-         boolean x1;
-         boolean x2;
-         boolean y0;
-         boolean y1;
-         boolean y2;
-         boolean z0;
-         boolean z1;
-         boolean z2;
 
-         int     x;
+               int ascii_0;
+               int ascii_9;
 
-         mips.read_c();
-         input = mips.retval();
-      
-start:   ;  
+               mips.read_c();
+               input = mips.retval();
 
-         x0 = '0' <= input;
-         x1 = input <= '9';
-         x2 = x0 && x1;
+c_init:        ;
+               
 
-         y0 = 'A' <= input;
-         y1 = input <= 'Z';
-         y2 = y0 && y1;
+               // '0' <= input && input <= '9'
+               ascii_start = '0';
+               ascii_end = '9';
+               x  = ascii_start <= input;
+               y  = input <= ascii_end;
+               t0 = x && y;
 
-         z0 = 'a' <= input;
-         z1 = input <= 'a';
-         z2 = z0 && z1;
+               // 'A' <= input && input <= 'Z'
+               ascii_start = 'A';              
+               ascii_end = 'Z';
+               x  = ascii_start <= input;
+               y  = input <= ascii_end;
+               t1 = x && y;
 
-rob:     if (x2 == true) {
-rob_0:      digit = input - '0';
-            break rob;
-         }
-         else {
-rob_1:     if (y2 == true) {
-            ;            
-            digit = input - 'A';
-            digit = digit + 10;
-            break rob;
-            }
-         else if (z2 == true) {
-rob_2:      ;      
-            digit = input - 'a';
-            digit = digit + 10;
-            break rob;
-            }
-         else {
-rob_3:      ;      
-            digit = -1;
-            break rob;
-         }
+               // 'a' <= input && input <= 'z'
+               ascii_start = 'a';
+               ascii_end = 'z';
+               x  = ascii_start <= input;        
+               y  = input <= ascii_end;
+               t2 = x && y;
 
-rob_4:   ;      
-done:    ;         
+cond:          if (t0 == true ) {
+c_next_0:         digit = input - '0';
+                  break cond;
+               }
+               else 
+c_next_1:      if (t1 == true ) {
+                  digit = input - 'A';
+                  digit = digit + 10;
+                  break cond;
+               }
+               else 
+c_next_2:      if (t2 == true ) {
+                  digit = input - 'a';
+                  digit = digit + 10;
+                  break cond; 
+               }
+c_next_3:      else {
+                  digit = -1;
+                  break cond;
+               }
+c_next_4:      ;               
+c_done:        ;               
 
-init:
-         x = radix -1;
-single:  if (digit > x) {
-s_0:         ;
-             digit = -1;
-             break single;
-         }
-s_1:     ;
-s_done:  ;
-
-    return digit;
+l_init:        ;
+               rhs = radix - 1;
+limit:         if (digit > rhs) {
+l_next_0:        digit = -1;
+                 break limit;
+               }
+l_done:
+               return digit;
 }
+
+
+
+
+
+
+
+
