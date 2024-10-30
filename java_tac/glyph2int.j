@@ -33,11 +33,12 @@ start:   ;
          z2 = z0 && z1;
 
 rob:     if (x2 == true) {
-            digit = input - '0';
+rob_0:      digit = input - '0';
             break rob;
          }
-         else if (y2 == true) {
-rob_1:      ;            
+         else {
+rob_1:     if (y2 == true) {
+            ;            
             digit = input - 'A';
             digit = digit + 10;
             break rob;
