@@ -67,7 +67,8 @@ l_init:        ;
 limit:         if (digit > rhs) {
 l_next_0:        digit = -1;
                  break limit;
-               }
+
+l_next_1:      }
 l_done:
                return digit;
 }
