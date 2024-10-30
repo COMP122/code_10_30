@@ -8,9 +8,9 @@ public static int glyph2int(int radix) {
                int input;
                int digit;
 
-
-               int ascii_0;
-               int ascii_9;
+               int ascii_start;
+               int ascii_end;
+               int rhs;
 
                mips.read_c();
                input = mips.retval();
@@ -55,8 +55,8 @@ c_next_2:      if (t2 == true ) {
                   digit = digit + 10;
                   break cond; 
                }
-c_next_3:      else {
-                  digit = -1;
+               else {
+c_next_3:         digit = -1;
                   break cond;
                }
 c_next_4:      ;               
