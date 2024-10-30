@@ -1,0 +1,17 @@
+[global]
+ENTRY=glyph2int
+EXIT_STATUS=IGNORE
+
+[default]
+DRIVER=java_subroutine
+
+
+[case]
+ARGS=10
+INPUT=6
+OUTPUT=6
+
+[case]
+ARGS=10
+INPUT=A
+OUTPUT=-1
