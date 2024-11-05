@@ -43,8 +43,8 @@ cond:          if (t0 == true ) {
 c_next_0:         digit = input - '0';
                   break cond;
                }
-               else 
-c_next_1:      if (t1 == true ) {
+               else  
+ c_next_1:     if (t1 == true ) {
                   digit = input - 'A';
                   digit = digit + 10;
                   break cond;
@@ -68,8 +68,9 @@ limit:         if (digit > rhs) {
 l_next_0:        digit = -1;
                  break limit;
 
-l_next_1:      }
-l_done:
+               }
+l_next_1:      ;
+l_done:        ;
                return digit;
 }
 
